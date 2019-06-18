@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { words } from "./numbers";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.calculateProbability = this.calculateProbability.bind(this);
+  }
+
+  calculateProbability(ev) {
+    const letter = ev.key;
+    const code = ev.keyCode;
+
+    if (code < 65 || code > 90) {
+      console.log("Not a letter");
+    }
+
+
+    const find = new RegExp(`${letter}`, "g");
+    const matches = words.match(find);
+
+    if (matches && matches.length) {
+      console.log("found matches", matches);
+    } else {
+      console.log("no matches for ", letter);
+    }
+
+  }
+  render() {
+    return (
+      <div>
+        <input type="text" onKeyUp={this.calculateProbability} />
+      </div >
+    );
+  }
 }
 
 export default App;
