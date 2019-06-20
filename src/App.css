@@ -1,0 +1,11 @@
+.app {
+  /* display: flex; */
+  /* flex-direction: column; */
+  max-width: 600px;
+  margin: 50px auto 0;
+}
+
+.letters {
+  word-break: break-all;
+  color: #333;
+}

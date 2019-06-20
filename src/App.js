@@ -53,23 +53,29 @@ class App extends React.Component {
   }
 
   getPercentage() {
-    return 100 * Number.parseFloat(this.state.matchCount / this.state.letterCount).toPrecision(4);
+    return (Number.parseFloat(this.state.matchCount / this.state.letterCount) * 100).toPrecision(4);
   }
 
   render() {
     return (
-      <div>
-        <input type="text" onChange={this.calculateProbability} value={this.state.letter} />
+      <div className="app">
+        <h1>Letter Probabilities</h1>
 
-        {this.state.matchCount} / {this.state.letterCount} ({this.getPercentage()}%)
+        <label htmlFor="letter">Letter</label>
+        <input id="letter" type="text" onChange={this.calculateProbability} value={this.state.letter} />
 
         <div>
+          <span>Probability</span>
+          {this.state.matchCount} / {this.state.letterCount} ({this.getPercentage()}%)
+        </div>
+
+        <p className="letters">
 
           <style dangerouslySetInnerHTML={{
             __html: `.${this.state.letter} { color: red }`
           }} />
           {this.displayLetters()}
-        </div>
+        </p>
 
       </div >
     );
