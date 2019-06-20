@@ -22,9 +22,10 @@ to get the string representation of the numbers 1 through 123. This is a separat
 string is a one time operation and allows the app to import the already-computed static string without
 having to do that work on each page load/app startup/etc. To get the string, run `node print-string.js`. 
 
-The string at the bottom of the page is built with a <span> tags wrapping each letter for the sake of styling. I would
+The string at the bottom of the page is built with <span> tags wrapping each letter for the sake of styling. I would
 normally not do something like this in a production app because of the computational overhead of mapping over every
-letter in a gigantic string just to wrap it in a span and then appending 1000+ DOM nodes. Nonetheless, it looks kind of cool. :)
+letter in a gigantic string just to wrap it in a span and then appending 1000+ DOM nodes. 
+Nonetheless, it looks kind of cool when the selected letter highlights. :)
 
 
 
