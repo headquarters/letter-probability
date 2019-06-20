@@ -1,6 +1,7 @@
-import React from 'react';
 import './App.css';
-import { words } from "./numbers";
+
+import React from 'react';
+import { numbersAsWords } from "./numbers";
 
 class App extends React.Component {
   constructor(props) {
@@ -8,15 +9,15 @@ class App extends React.Component {
 
     this.calculateProbability = this.calculateProbability.bind(this);
     this.state = {
-      letterCount: words.length,
+      letterCount: numbersAsWords.length,
       letter: "",
       matchCount: 0
     }
   }
 
   calculateProbability(ev) {
+    // Grab only the last letter that was typed in
     const letter = ev.target.value.slice(-1);
-    const code = letter.charCodeAt();
     let matchCount = 0;
 
     if (ev.target.value.length === 0) {
@@ -26,13 +27,13 @@ class App extends React.Component {
       });
     }
 
-    if (code < 65 || code > 122) {
-      console.info("Not a letter");
+    if(!/[a-zA-Z]/.test(letter)) {
+      console.info(`${letter} is not a letter`);
       return;
-    }
+    }    
 
     const find = new RegExp(`${letter}`, "g");
-    const matches = words.match(find);
+    const matches = numbersAsWords.match(find);
 
     if (matches && matches.length) {
       matchCount = matches.length;
@@ -45,7 +46,7 @@ class App extends React.Component {
   }
 
   displayLetters() {
-    const letters = words.split("");
+    const letters = numbersAsWords.split("");
 
     return letters.map((letter, index) => {
       return <span key={`${letter}-${index}`} className={letter}>{letter}</span>
@@ -60,19 +61,29 @@ class App extends React.Component {
     return (
       <div className="app">
         <h1>Letter Probabilities</h1>
+        <p>
+          The string at the bottom represents the numbers 1-123 spelled out in words. 
+          Type in a letter to see the count of times it appears in the string. 
+        </p>
 
-        <label htmlFor="letter">Letter</label>
-        <input id="letter" type="text" onChange={this.calculateProbability} value={this.state.letter} />
+        <form className="form">
+          <div className="letter-input">
+            <h2><label htmlFor="letter">Letter</label></h2>
+            <input id="letter" type="text" onChange={this.calculateProbability} value={this.state.letter} placeholder="a"/>
+          </div>
 
-        <div>
-          <span>Probability</span>
-          {this.state.matchCount} / {this.state.letterCount} ({this.getPercentage()}%)
-        </div>
+          <div className="probability-output">
+            <h2>Probability</h2>
+            <div aria-live="polite" aria-atomic="true">
+              {this.state.matchCount} / {this.state.letterCount} ({this.getPercentage()}%)
+            </div>
+          </div>
+        </form>
+
 
         <p className="letters">
-
           <style dangerouslySetInnerHTML={{
-            __html: `.${this.state.letter} { color: red }`
+            __html: `.${this.state.letter} { color: #ec1010 }`
           }} />
           {this.displayLetters()}
         </p>
