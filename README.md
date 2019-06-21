@@ -27,5 +27,9 @@ normally not do something like this in a production app because of the computati
 letter in a gigantic string just to wrap it in a span and then appending 1000+ DOM nodes. 
 Nonetheless, it looks kind of cool when the selected letter highlights. :)
 
+Everything is inside the App.js file, though this should probably be decomposed into smaller components
+and utility functions in a more production-ready app. Right now it's kind of a mini-monolith. 
 
-
+As far as testing, there is only one DOM-level test (effectively an acceptance test) that checks the "e" probability is 
+calculated and displayed properly. Each of the methods in App.js could use their own unit tests, but I did not take the
+time to write those. 

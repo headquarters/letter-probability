@@ -1,6 +1,6 @@
-import './App.css';
+import "./App.css";
 
-import React from 'react';
+import React from "react";
 import { numbersAsWords } from "./numbers";
 
 class App extends React.Component {
@@ -27,10 +27,10 @@ class App extends React.Component {
       });
     }
 
-    if(!/[a-zA-Z]/.test(letter)) {
+    if (!/[a-zA-Z]/.test(letter)) {
       console.info(`${letter} is not a letter`);
       return;
-    }    
+    }
 
     const find = new RegExp(`${letter}`, "g");
     const matches = numbersAsWords.match(find);
@@ -62,14 +62,14 @@ class App extends React.Component {
       <div className="app">
         <h1>Letter Probabilities</h1>
         <p>
-          The string at the bottom represents the numbers 1-123 spelled out in words. 
-          Type in a letter to see the count of times it appears in the string. 
+          The string at the bottom represents the numbers 1-123 spelled out in words.
+          Type in a letter to see the count of times it appears in the string.
         </p>
 
         <form className="form">
           <div className="letter-input">
             <h2><label htmlFor="letter">Letter</label></h2>
-            <input id="letter" type="text" onChange={this.calculateProbability} value={this.state.letter} placeholder="a"/>
+            <input id="letter" type="text" onChange={this.calculateProbability} value={this.state.letter} placeholder="a" />
           </div>
 
           <div className="probability-output">
