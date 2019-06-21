@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8f794f0a44517fd069bb0ad1ae616c28",
+    "revision": "a28c0ba9f6274cc108ead2aa285f90f3",
     "url": "/letter-probability/index.html"
   },
   {
-    "revision": "81633e0a2ca8eeaabbe1",
+    "revision": "c0ed1e935cee9dcf136a",
     "url": "/letter-probability/static/css/main.2f9c3a65.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/letter-probability/static/js/2.4e81ba5b.chunk.js"
   },
   {
-    "revision": "81633e0a2ca8eeaabbe1",
-    "url": "/letter-probability/static/js/main.a399b236.chunk.js"
+    "revision": "c0ed1e935cee9dcf136a",
+    "url": "/letter-probability/static/js/main.96c3beb3.chunk.js"
   },
   {
     "revision": "983cac3bacf9fb0f9251",

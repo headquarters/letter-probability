@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/letter-probability/precache-manifest.10672c97e65fb214eceedb51782edfb7.js"
+  "/letter-probability/precache-manifest.0d2ef5415d7bc2c7d6a84a4fc016e37d.js"
 );
 
 self.addEventListener('message', (event) => {
